@@ -49,6 +49,27 @@ class heap
         }
     }
 };
+void Heapify(int arr[], int n,int i)
+{
+    int lar = i;
+    int right = 2*i +1;
+    int left = 2*i;
+    if(left <=n && arr[lar]<arr[left] )
+    {
+        lar = left;
+    }
+     if(right <=n && arr[lar]<arr[right] )
+    {
+        lar = right;
+    }
+    if(lar!= i)
+    {
+        swap(arr[lar],arr[i]);
+        Heapify(arr,n,i);
+    }
+
+    
+}
 
 int main()
 {
@@ -57,7 +78,18 @@ int main()
     h1.insert(10);
     h1.insert(20);
     h1.insert(30);
-    h1.ph();
+  //  h1.ph();
+    int arr[] = { -1,30,25,46,50};
+    for(int i=4; i>=1; i--)
+    {
+        Heapify(arr,4,i);
+    }
+
+    for(int i=1; i<=4; i++)
+    {
+       cout<<arr[i]<<" ";
+    }
+
      return 0;
     
 }
