@@ -79,7 +79,7 @@ class heap
         }
 
     }
-
+  
     // function to print heap 
     void ph()
     {
@@ -90,26 +90,38 @@ class heap
         }
     }
 };
-
-
-/*void heapSort(int arr[], int size)
-{
-    if(size<=1)
-    return;
-
-    while(size>1)
+  void correctPos(int arr[], int i, int s)
     {
-        //first swap root and end
-        swap(arr[0],arr[size-1]);
-        //reduce the size of arr
-        size--;
-        //put root in right place
-        if(arr[0] < )
+        int lar = i;
+        int right = 2*i +1;
+        int left= 2*i;
 
-        
-        
+        if(left<=s && arr[left] > arr[i])
+        lar = left;
+
+        if(right<=s && arr[right] > arr[i])
+        lar = right;
+
+        if(lar!=i)
+       { 
+            swap(arr[i],arr[lar]);
+            correctPos(arr,i,s);
+       }
     }
-}*/
+    void heapSort(int arr[],int s)
+    {
+        //swap first no. with last no.
+        
+        int t = s;
+        while(t>s)
+        { 
+            swap(arr[1],arr[s]);
+            correctPos(arr,1,s);
+             t--;
+        }
+        
+
+    }
 
 int main()
 {
@@ -117,23 +129,26 @@ int main()
     cout<<"Enter size of heap";
     cin>>size;
     heap h;
+    int arr[size];
+    
+    for(int i=0; i<size;i++)
+    {
+        
+        cin>>arr[i];
+    }
     for(int i=0; i<size; i++)
     {
-        int val;
-        cin>>val;
-        h.insert(val);
+        
+        h.insert(arr[i]);
     }
+    heapSort(h.arr,size+1);
 
-    for(int i=0; i<size+1; i++)
+    for(int i=1; i<=size;i++)
     {
         cout<<h.arr[i]<<" ";
     }
+   
 
-    h.deleteHeap();
-    for(int i=0; i<size-1; i++)
-    {
-        cout<<h.arr[i]<<" ";
-    }
    
     return 0;
 }
