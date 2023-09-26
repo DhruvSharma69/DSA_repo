@@ -18,7 +18,7 @@ class node
 };
 
 // INPUT ->  50 30 -1 -1 49 -1 -1           isHeap
-// INPUT ->  50 30 -1 -1 49 -1 15           not Heap
+// INPUT ->  50 30 -1 -1 49 -1 15  -1 -1         not Heap
 // INPUT ->  50 30 -1 -1 51 -1 -1           not Heap
 
 node* BT()
