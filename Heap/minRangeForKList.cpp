@@ -59,17 +59,21 @@ int main()
     {
         p[i] = new list<int>;
     }
-    p[0]->push_back(3); 
-    p[0]->push_back(5); 
-    p[0]->push_back(8);
+    p[0]->push_back(4); 
+    p[0]->push_back(10); 
+    p[0]->push_back(15); //4,10,15,24,26],[0,9,12,20],[5,18,22,30
+    p[0]->push_back(24); //4,10,15,24,26],[0,9,12,20],[5,18,22,30
+    p[0]->push_back(26); //4,10,15,24,26],[0,9,12,20],[5,18,22,30
 
-    p[1]->push_back(4); 
+    p[1]->push_back(0); 
     p[1]->push_back(9); 
-    p[1]->push_back(14);
+    p[1]->push_back(12);
+    p[1]->push_back(20);
 
-    p[2]->push_back(10); 
-    p[2]->push_back(11); 
-    p[2]->push_back(19); 
+    p[2]->push_back(5); 
+    p[2]->push_back(18); 
+    p[2]->push_back(22); 
+    p[2]->push_back(30); 
     
     pair<int,int> ans = findSmallestRange(p,k,3);
     cout<<ans.first<<" "<<ans.second;
